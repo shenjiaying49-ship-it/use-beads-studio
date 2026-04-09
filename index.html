@@ -3,23 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>拼豆图纸生成器</title>
+    <title>Use Beads Studio</title>
+    <meta
+      name="description"
+      content="Use Beads Studio 是一个浏览器内运行的拼豆图纸生成器，支持自动缩小、白底排除、颗数控制和 PNG 导出。"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <div class="brand-block">
-          <p class="eyebrow">Fuse Beads Studio</p>
-          <h1>拼豆图纸工作台</h1>
+          <p class="eyebrow">Use Beads Studio</p>
+          <h1>把图片变成更小、更容易拼的拼豆图纸</h1>
           <p class="lede">
-            上传图片后自动转成可打印的编号网格，并按照大区块红线、坐标头和底部色号统计展示。
+            上传图片后先自动压到基准最小尺寸，再继续缩小颗数、减少细节，最后导出带编号和色号统计的拼豆图纸。
           </p>
+          <div class="hero-metrics">
+            <div class="hero-chip">
+              <strong>自动基准缩小</strong>
+              <span>上传后先压到更适合拼豆的尺寸</span>
+            </div>
+            <div class="hero-chip">
+              <strong>白底不计数</strong>
+              <span>只统计真正需要摆放的豆子</span>
+            </div>
+            <div class="hero-chip">
+              <strong>继续简化细节</strong>
+              <span>在基准图上再往下缩小颗数</span>
+            </div>
+          </div>
+        </div>
+
+        <section class="card intro-card">
+          <div class="card-head">
+            <h2>快速开始</h2>
+            <span>3 步完成</span>
+          </div>
+          <div class="intro-steps">
+            <div class="intro-step">
+              <strong>1. 上传图片</strong>
+              <p>先导入原图，工具会自动生成适合拼豆的基准尺寸。</p>
+            </div>
+            <div class="intro-step">
+              <strong>2. 调整颗数</strong>
+              <p>拖动滑块继续缩小，让成品更省豆、更容易完成。</p>
+            </div>
+            <div class="intro-step">
+              <strong>3. 下载图纸</strong>
+              <p>导出当前页 PNG，按编号和色号直接开始拼。</p>
+            </div>
+          </div>
         </div>
 
         <section class="card controls-card">
           <div class="card-head">
-            <h2>图片与裁切</h2>
+            <h2>图片与参数</h2>
             <span id="fileMeta">未选择图片</span>
           </div>
 
@@ -35,6 +74,7 @@
                 <input type="range" id="scale" min="0.2" max="1" step="0.05" value="1" />
                 <strong id="scaleValue">100% 基准</strong>
               </div>
+              <small class="field-tip">`100%` 表示自动计算出的基准最小尺寸，再往下拖会继续缩小并简化细节。</small>
             </label>
           </div>
 
@@ -95,11 +135,12 @@
           <div class="panel-toolbar">
             <div>
               <p class="panel-kicker">Pattern Sheet</p>
-              <h2>编号拼豆图纸</h2>
+              <h2>Pattern Preview</h2>
             </div>
             <div class="toolbar-meta">
-              <span>大区块每 10 格标线</span>
-              <span>坐标头已启用</span>
+              <span>10 格红线分区</span>
+              <span>编号坐标头</span>
+              <span>底部色号统计</span>
             </div>
           </div>
 

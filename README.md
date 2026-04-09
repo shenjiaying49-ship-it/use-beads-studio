@@ -1,6 +1,10 @@
-# use-beads-studio
+# Use Beads Studio
 
 一个浏览器内运行的拼豆图纸生成器。
+
+在线地址：
+
+`https://shenjiaying49-ship-it.github.io/use-beads-studio/`
 
 ## 功能
 
