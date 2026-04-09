@@ -13,48 +13,12 @@
   <body>
     <div class="app-shell">
       <aside class="sidebar">
-        <div class="brand-block">
+        <section class="brand-block compact-brand">
           <p class="eyebrow">Use Beads Studio</p>
-          <h1>把图片变成更小、更容易拼的拼豆图纸</h1>
-          <p class="lede">
-            上传图片后先自动压到基准最小尺寸，再继续缩小颗数、减少细节，最后导出带编号和色号统计的拼豆图纸。
-          </p>
-          <div class="hero-metrics">
-            <div class="hero-chip">
-              <strong>自动基准缩小</strong>
-              <span>上传后先压到更适合拼豆的尺寸</span>
-            </div>
-            <div class="hero-chip">
-              <strong>白底不计数</strong>
-              <span>只统计真正需要摆放的豆子</span>
-            </div>
-            <div class="hero-chip">
-              <strong>继续简化细节</strong>
-              <span>在基准图上再往下缩小颗数</span>
-            </div>
-          </div>
-        </div>
-
-        <section class="card intro-card">
-          <div class="card-head">
-            <h2>快速开始</h2>
-            <span>3 步完成</span>
-          </div>
-          <div class="intro-steps">
-            <div class="intro-step">
-              <strong>1. 上传图片</strong>
-              <p>先导入原图，工具会自动生成适合拼豆的基准尺寸。</p>
-            </div>
-            <div class="intro-step">
-              <strong>2. 调整颗数</strong>
-              <p>拖动滑块继续缩小，让成品更省豆、更容易完成。</p>
-            </div>
-            <div class="intro-step">
-              <strong>3. 下载图纸</strong>
-              <p>导出当前页 PNG，按编号和色号直接开始拼。</p>
-            </div>
-          </div>
-        </div>
+          <h1>拼豆图纸工作台</h1>
+          <p class="lede">左侧调参数，右侧直接看生成图纸。使用说明可以随时打开，看完就关掉。</p>
+          <button type="button" id="openGuide" class="secondary-button">查看使用说明</button>
+        </section>
 
         <section class="card controls-card">
           <div class="card-head">
@@ -135,12 +99,12 @@
           <div class="panel-toolbar">
             <div>
               <p class="panel-kicker">Pattern Sheet</p>
-              <h2>Pattern Preview</h2>
+              <h2>生成图纸</h2>
             </div>
             <div class="toolbar-meta">
               <span>10 格红线分区</span>
               <span>编号坐标头</span>
-              <span>底部色号统计</span>
+              <span>色号统计</span>
             </div>
           </div>
 
@@ -159,6 +123,33 @@
           </div>
         </section>
       </main>
+    </div>
+
+    <div class="guide-modal" id="guideModal" aria-hidden="false">
+      <div class="guide-backdrop" id="closeGuideBackdrop"></div>
+      <section class="guide-dialog" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+        <button type="button" id="closeGuide" class="guide-close" aria-label="关闭说明">×</button>
+        <p class="eyebrow">Use Beads Studio</p>
+        <h2 id="guideTitle">使用说明</h2>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <strong>1. 上传图片</strong>
+            <p>上传后会先自动压到更适合拼豆的基准最小尺寸。</p>
+          </div>
+          <div class="guide-step">
+            <strong>2. 调整颗数</strong>
+            <p>拖动“目标总颗数”继续缩小，图会变得更小，细节也会同步减少。</p>
+          </div>
+          <div class="guide-step">
+            <strong>3. 查看图纸</strong>
+            <p>右侧直接预览分页图纸，底部色号会尽量轻量显示，不抢主要视线。</p>
+          </div>
+          <div class="guide-step">
+            <strong>4. 下载 PNG</strong>
+            <p>确认效果后导出当前页，照着编号和色号开始拼。</p>
+          </div>
+        </div>
+      </section>
     </div>
     <script type="module" src="script.js"></script>
   </body>

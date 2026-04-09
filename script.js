@@ -13,6 +13,10 @@ const statusText = document.getElementById("statusText");
 const pageBadge = document.getElementById("pageBadge");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
+const openGuideButton = document.getElementById("openGuide");
+const guideModal = document.getElementById("guideModal");
+const closeGuideButton = document.getElementById("closeGuide");
+const closeGuideBackdrop = document.getElementById("closeGuideBackdrop");
 const cropInputs = {
   x: document.getElementById("cropX"),
   y: document.getElementById("cropY"),
@@ -55,6 +59,14 @@ const updateCropLabels = () => {
 
 const setStatus = (message) => {
   statusText.textContent = message;
+};
+
+const openGuide = () => {
+  guideModal.setAttribute("aria-hidden", "false");
+};
+
+const closeGuide = () => {
+  guideModal.setAttribute("aria-hidden", "true");
 };
 
 const getTargetBeadRatio = () => parseFloat(scaleControl.value);
@@ -631,6 +643,16 @@ nextPageButton.addEventListener("click", () => {
   currentPageIndex += 1;
   drawGrid(lastRendered.bitmap, lastRendered.paletteLookup, currentPageIndex);
   setStatus(`查看第 ${currentPageIndex + 1} 页`);
+});
+
+openGuideButton.addEventListener("click", openGuide);
+closeGuideButton.addEventListener("click", closeGuide);
+closeGuideBackdrop.addEventListener("click", closeGuide);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeGuide();
+  }
 });
 
 updateCropLabels();
